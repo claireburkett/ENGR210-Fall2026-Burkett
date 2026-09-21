@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+
 data = np.loadtxt(r'C:\Users\SFU\OneDrive - Saint Francis University\Desktop\ENGR210-Fall\StrainTest.csv',
                   delimiter=",",
                   skiprows=1)
