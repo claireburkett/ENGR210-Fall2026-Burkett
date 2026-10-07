@@ -14,7 +14,7 @@ def trap_int (f, a, b, N):
     return integral
 
 integral = trap_int(f,0,np.pi,50)
-print("Trapezoidal integral = ", integral)
+print("Trapezoidal integral sin= ", integral)
 
 def f(x):
     return np.cos(x)
@@ -29,4 +29,9 @@ def trap_int (f, a, b, N):
     return integral
 
 integral = trap_int(f,0,np.pi,50)
-print("Trapezoidal integral = ", integral)
+print("Trapezoidal integral cos= ", integral)
+
+#error
+
+
+
