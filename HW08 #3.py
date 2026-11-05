@@ -19,7 +19,7 @@ np.fill_diagonal(A[1:-1,0:-2], 1)
 np.fill_diagonal(A[1:-1,2:], 1)
 A[0,0], A[-1,-1] = 1, 1 # Fixed Temperature BCs
 b[1:-1] = -hpr*Tambient
-b[0], b[-1] = 200, -h2pr * (Tright-Tambient) # Fixed Temperature BCs
+b[-1], b[0] = 200, -h2pr * (Tright-Tambient) # Fixed Temperature BCs
 
 # Run linalg.solve to find T
 T = np.linalg.solve(A, b)
