@@ -4,7 +4,7 @@ from scipy.integrate import solve_ivp
 
 t = np.linspace(0, 365, 732)
 ki = 1 / 5       # surface water infiltrating into topsoil
-k2 = 1 / 20       # topsoil draining into subsoil
+k2 = 1 / 40       # topsoil draining into subsoil
 k3 = 1 / 60          # water leaving the subsoil
 kmax = 1 / 2             # overflow from the surface
 '''
@@ -20,8 +20,8 @@ S = gallons of water
 Tl = 100
 
 ep = .15
-el = .1
-es = .06
+el = .05
+es = .02
 '''
 e = gallons of water
 '''
@@ -35,15 +35,14 @@ storms = [(30, 8.0, 3.0),
           (360, 9, 4)]
 
 def p(t):
-    """Seasonal background rainfall plus several storm events."""
-    seasonal = 1.0 + 0.6 * np.sin(2 * np.pi * (t - 80) / 365)
-    background = max(0.0, 0.25 * seasonal)
+    typical = 1.0 + 0.6 * np.sin(2 * np.pi * (t - 80) / 365)
+    background = max(0.0, 0.25 * typical)
 
-    storm_rain = 0.0
+    storm = 0.0
     for day, peak, duration in storms:
-        storm_rain += peak * np.exp(-0.5 * ((t - day) / duration) ** 2)
+        storm += peak * np.exp(-0.5 * ((t - day) / duration) ** 2)
 
-    return background + storm_rain
+    return background + storm
 
 def rate(t, y):
     Sp, St, Ss = y
