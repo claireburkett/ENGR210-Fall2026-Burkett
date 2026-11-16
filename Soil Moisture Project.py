@@ -104,5 +104,4 @@ plt.xlabel("Time (days)")
 plt.ylabel("Water (gallons)")
 plt.title("Soil response to monthly rainfall")
 plt.legend()
-
 plt.show()
