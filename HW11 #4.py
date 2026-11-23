@@ -1,5 +1,9 @@
 import numpy as np
-def golden_section(f,xu,xl,tol):    
+def golden_section(f,xl,xu,tol):    
+    R = (np.sqrt(5) - 1) / 2
+    x1 = xu - R * (xu - xl)
+    x2 = xl + R * (xu - xl)
+    fx1, fx2 = f(x1), f(x2)
     while (xu - xl) / 2 > tol:
         if fx2 > fx1:
             xl = x2
